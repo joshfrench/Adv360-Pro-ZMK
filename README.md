@@ -1,15 +1,29 @@
 # ADV360-PRO-ZMK
 
-## To build Firmware locally using Docker
+## To build Firmware in GitHub Actions
 
 ### Setup
 
-1. `make docker` (only needs to be run once, or when `west` needs updating)
+1. Fork this repo.
+2. Enable GitHub Actions on your fork.
 
 ### Build firmware
 
-1. `make build`
+1. Push a commit to trigger the build.
+2. Download the artifact.
+
+## To build Firmware locally using Docker
+
+### First run
+
+1. Execute `make all`.
 2. Check the `firmware` directory for the latest firmware build.
+
+### Subsequent runs
+
+If the only file you have changed is `config/adv360.keymap`, execute `make build` and check the `firmware` directory for the latest firmware build.
+
+If you have changed other files in the `config` directory (such as `config/west.yml`) you will need to execute `make all` to rebuild the Docker image as well as the firmware.
 
 ### Flash firmware
 
